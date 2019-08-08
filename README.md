@@ -27,8 +27,11 @@ sed -i 's/#define SSH_VERSION\t".*"/#define SSH_VERSION\t"OpenSSH_7.6"/' version
 sed -i 's/#define SSH_PORTABLE\t".*"/#define SSH_PORTABLE\t"p1"/' version.h   
 
 #### Install required library   
-yum -y install zlib-devel openssl-devel pam-devel   
+centos:
+`yum -y install zlib-devel openssl-devel pam-devel`
 
+ubuntu:
+`apt-get install libssl1.0-dev zlib1g-dev libkrb5-dev libpam-dev`
 #### run configure   
 #Notice: Confirm the location of the original openssh and configure files installed. It's important for command ./configure --prefix   
 ./configure --prefix=/usr --sysconfdir=/etc/ssh --with-pam --with-kerberos5   
